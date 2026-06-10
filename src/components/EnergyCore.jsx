@@ -7,7 +7,11 @@ const MASCOTS = {
   'Phượng Hoàng Lửa': { emoji: '🔥', textColor: 'text-amber-500', stats: { will: 100, clarity: 95, luck: 90 } },
   'Rùa Thần Khải Huyền': { emoji: '🐢', textColor: 'text-emerald-500', stats: { will: 95, clarity: 100, luck: 95 } },
   'Cá Chép Hóa Rồng': { emoji: '🐉', textColor: 'text-cyan-500', stats: { will: 90, clarity: 95, luck: 100 } },
-  'Kỳ Lân Trí Tuệ': { emoji: '✨', textColor: 'text-purple-500', stats: { will: 99, clarity: 99, luck: 99 } }
+  'Kỳ Lân Trí Tuệ': { emoji: '✨', textColor: 'text-purple-500', stats: { will: 99, clarity: 99, luck: 99 } },
+  'Hổ Tướng Dũng Mãnh': { emoji: '🐯', textColor: 'text-orange-500', stats: { will: 100, clarity: 90, luck: 95 } },
+  'Đại Bàng Tung Cánh': { emoji: '🦅', textColor: 'text-blue-500', stats: { will: 95, clarity: 98, luck: 92 } },
+  'Hươu Sao Tường Thụy': { emoji: '🦌', textColor: 'text-pink-500', stats: { will: 90, clarity: 96, luck: 100 } },
+  'Voi Thần Trấn Quốc': { emoji: '🐘', textColor: 'text-teal-600', stats: { will: 98, clarity: 97, luck: 90 } }
 };
 
 const WISHES = {
@@ -116,17 +120,17 @@ export default function EnergyCore({ presetToApply }) {
     });
   };
 
-  // Canvas Exporter Code
+  // Canvas Exporter Code (1080x1920 HD phone wallpaper resolution)
   const downloadCardImage = () => {
     if (!activatedCard) return;
 
     const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 600;
+    canvas.width = 1080;
+    canvas.height = 1920;
     const ctx = canvas.getContext('2d');
 
     // Gradient background based on boost type
-    const bgGrad = ctx.createLinearGradient(0, 0, 0, 600);
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, 1920);
     if (activatedCard.wishType === 'will') {
       bgGrad.addColorStop(0, '#fef3c7'); // amber 100
       bgGrad.addColorStop(1, '#f59e0b'); // amber 500
@@ -139,132 +143,130 @@ export default function EnergyCore({ presetToApply }) {
     }
 
     ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, 400, 600);
+    ctx.fillRect(0, 0, 1080, 1920);
 
     // Decorative cyber grid background
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i < 400; i += 40) {
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 1080; i += 90) {
       ctx.beginPath();
       ctx.moveTo(i, 0);
-      ctx.lineTo(i, 600);
+      ctx.lineTo(i, 1920);
       ctx.stroke();
     }
-    for (let j = 0; j < 600; j += 40) {
+    for (let j = 0; j < 1920; j += 90) {
       ctx.beginPath();
       ctx.moveTo(0, j);
-      ctx.lineTo(400, j);
+      ctx.lineTo(1080, j);
       ctx.stroke();
     }
 
     // Outer card border
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
-    ctx.lineWidth = 8;
-    ctx.strokeRect(10, 10, 380, 580);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.lineWidth = 18;
+    ctx.strokeRect(25, 25, 1030, 1870);
 
     // Inner Glass Card
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.82)';
     ctx.beginPath();
-    ctx.roundRect(25, 25, 350, 550, 24);
+    ctx.roundRect(65, 65, 950, 1790, 50);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.lineWidth = 4;
     ctx.stroke();
 
     // Draw header ribbon
     ctx.fillStyle = '#1e293b'; // slate 800
     ctx.beginPath();
-    ctx.roundRect(40, 40, 320, 45, 12);
+    ctx.roundRect(110, 110, 860, 110, 24);
     ctx.fill();
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 13px Courier New';
+    ctx.font = 'bold 36px Courier New';
     ctx.textAlign = 'center';
-    ctx.fillText('CORE HỘ MỆNH CHIẾN BINH 2026', 200, 67);
+    ctx.fillText('CORE HỘ MỆNH CHIẾN BINH 2026', 540, 178);
 
-    // Mascot Emoji Area
+    // Mascot Circle Area
     ctx.fillStyle = '#ffffff';
     ctx.beginPath();
-    ctx.arc(200, 155, 45, 0, Math.PI * 2);
+    ctx.arc(540, 460, 130, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 8;
     ctx.stroke();
 
-    ctx.font = '45px Arial';
-    ctx.fillText(activatedCard.emoji, 200, 172);
+    // Mascot Emoji
+    ctx.font = '120px Arial';
+    ctx.fillText(activatedCard.emoji, 540, 505);
 
     // Mascot Name Label
     ctx.fillStyle = '#0f172a';
-    ctx.font = 'bold 15px sans-serif';
-    ctx.fillText(activatedCard.mascot, 200, 222);
+    ctx.font = 'bold 44px sans-serif';
+    ctx.fillText(activatedCard.mascot, 540, 645);
 
     // Divider
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.08)';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(50, 238);
-    ctx.lineTo(350, 238);
+    ctx.moveTo(130, 705);
+    ctx.lineTo(950, 705);
     ctx.stroke();
 
     // Candidate Info Labels
     ctx.textAlign = 'left';
-    ctx.font = 'bold 11px sans-serif';
+    ctx.font = 'bold 28px sans-serif';
     ctx.fillStyle = '#64748b'; // slate 500
-    ctx.fillText('SĨ TỬ CHIẾN BINH', 50, 262);
-    ctx.fillText('SỐ BÁO DANH', 50, 317);
-    ctx.fillText('NGUYỆN VỌNG 1', 50, 372);
+    ctx.fillText('SĨ TỬ CHIẾN BINH', 130, 775);
+    ctx.fillText('SỐ BÁO DANH', 130, 945);
+    ctx.fillText('NGUYỆN VỌNG 1', 130, 1115);
 
     // Candidate Info Values
     ctx.fillStyle = '#0f172a'; // slate 900
-    ctx.font = 'black 22px sans-serif';
-    // Draw Name
-    ctx.fillText(activatedCard.name, 50, 287);
-    ctx.font = 'bold 14px monospace';
-    // Draw SBD
-    ctx.fillText(activatedCard.sbd, 50, 340);
-    // Draw NV1
-    ctx.font = 'bold 14px sans-serif';
-    ctx.fillText(activatedCard.nv1, 50, 395);
+    ctx.font = '900 64px sans-serif';
+    ctx.fillText(activatedCard.name, 130, 855);
+    ctx.font = 'bold 40px monospace';
+    ctx.fillText(activatedCard.sbd, 130, 1015);
+    ctx.font = 'bold 40px sans-serif';
+    ctx.fillText(activatedCard.nv1, 130, 1185);
 
     // Divider before stats
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.08)';
     ctx.beginPath();
-    ctx.moveTo(50, 415);
-    ctx.lineTo(350, 415);
+    ctx.moveTo(130, 1245);
+    ctx.lineTo(950, 1245);
     ctx.stroke();
 
     // Stats Bar drawing helper
     const drawStatBar = (label, value, yPos, barColor) => {
       ctx.fillStyle = '#64748b';
-      ctx.font = 'bold 10px sans-serif';
-      ctx.fillText(label, 50, yPos);
+      ctx.font = 'bold 26px sans-serif';
+      ctx.fillText(label, 130, yPos);
       ctx.textAlign = 'right';
-      ctx.fillText(`${value}%`, 350, yPos);
+      ctx.fillText(`${value}%`, 950, yPos);
       ctx.textAlign = 'left';
 
       // Bar container
       ctx.fillStyle = '#f1f5f9';
       ctx.beginPath();
-      ctx.roundRect(50, yPos + 6, 300, 7, 4);
+      ctx.roundRect(130, yPos + 18, 820, 20, 10);
       ctx.fill();
 
       // Filled bar
       ctx.fillStyle = barColor;
       ctx.beginPath();
-      ctx.roundRect(50, yPos + 6, (value / 100) * 300, 7, 4);
+      ctx.roundRect(130, yPos + 18, (value / 100) * 820, 20, 10);
       ctx.fill();
     };
 
-    drawStatBar('QUYẾT TÂM & Ý CHÍ', activatedCard.stats.will, 442, '#f59e0b');
-    drawStatBar('MINH MẪN & SÁNG SUỐT', activatedCard.stats.clarity, 477, '#10b981');
-    drawStatBar('MAY MẮN & THUẬN LỢI', activatedCard.stats.luck, 512, '#06b6d4');
+    drawStatBar('QUYẾT TÂM & Ý CHÍ', activatedCard.stats.will, 1335, '#f59e0b');
+    drawStatBar('MINH MẪN & SÁNG SUỐT', activatedCard.stats.clarity, 1465, '#10b981');
+    drawStatBar('MAY MẮN & THUẬN LỢI', activatedCard.stats.luck, 1595, '#06b6d4');
 
     // Footer signature / Credit
     ctx.fillStyle = '#94a3b8'; // slate 400
-    ctx.font = 'bold 9px monospace';
+    ctx.font = 'bold 26px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('TÁC GIẢ: NGUYỄN TRUNG KIÊN VNU - UET', 200, 555);
+    ctx.fillText('BÙA HỘ MỆNH', 540, 1775);
 
     // Trigger PNG Download
     const dataUrl = canvas.toDataURL('image/png');
@@ -275,7 +277,7 @@ export default function EnergyCore({ presetToApply }) {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-6">
+    <div className="w-full max-w-6xl mx-auto px-4 pb-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
         {/* Left Column: Form & Selection */}
@@ -429,11 +431,11 @@ export default function EnergyCore({ presetToApply }) {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -15 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="w-full max-w-sm flex flex-col items-center"
+                className="w-full max-w-xs flex flex-col items-center"
               >
                 {/* Physical Card Mockup UI */}
                 <div
-                  className={`relative w-full aspect-[2/3] rounded-3xl p-5 border-4 border-white shadow-soft-xl overflow-hidden flex flex-col justify-between select-none ${activatedCard.wishType === 'will'
+                  className={`relative w-full aspect-[9/16] rounded-3xl p-5 border-4 border-white shadow-soft-xl overflow-hidden flex flex-col justify-between select-none ${activatedCard.wishType === 'will'
                       ? 'bg-gradient-to-b from-amber-100 to-amber-500'
                       : activatedCard.wishType === 'victory'
                         ? 'bg-gradient-to-b from-emerald-100 to-emerald-500'
@@ -564,7 +566,7 @@ export default function EnergyCore({ presetToApply }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="w-full max-w-sm aspect-[2/3] rounded-3xl bg-slate-100 border border-dashed border-slate-350 flex flex-col items-center justify-center p-6 text-center text-slate-400 shadow-inner"
+                className="w-full max-w-xs aspect-[9/16] rounded-3xl bg-slate-100 border border-dashed border-slate-350 flex flex-col items-center justify-center p-6 text-center text-slate-400 shadow-inner"
               >
                 <div className="w-14 h-14 rounded-full bg-slate-200/50 flex items-center justify-center text-slate-400 mb-3 animate-pulse">
                   <Award className="w-7 h-7" />

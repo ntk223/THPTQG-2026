@@ -49,7 +49,7 @@ export default function WishingWall() {
   };
 
   return (
-    <section className="py-12 max-w-6xl mx-auto px-4">
+    <section className="max-w-6xl mx-auto px-4 pb-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {/* Left: Input Sticky Form */}
@@ -70,7 +70,7 @@ export default function WishingWall() {
                 type="text"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
-                placeholder="Ví dụ: Bố Hải, Bạn Thân,..."
+                placeholder="Ví dụ: Bố, Mẹ, Bạn Thân,..."
                 maxLength={25}
                 required
                 className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50 bg-slate-50/50"

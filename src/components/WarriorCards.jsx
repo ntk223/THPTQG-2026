@@ -79,7 +79,7 @@ export default function WarriorCards({ onApplyPreset }) {
   };
 
   return (
-    <section className="py-12 max-w-7xl mx-auto px-4">
+    <section className="max-w-7xl mx-auto px-4 pb-4">
       {/* Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {PRESET_CARDS.map((card) => {

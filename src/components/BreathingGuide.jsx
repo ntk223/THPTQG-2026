@@ -57,7 +57,7 @@ export default function BreathingGuide() {
   const config = getStatusConfig();
 
   return (
-    <div className="w-full p-6 rounded-2xl bg-white border border-slate-100 shadow-soft flex flex-col items-center">
+    <div className="w-full p-6 rounded-2xl bg-gradient-to-br from-white/95 via-cyan-50/20 to-emerald-50/20 border border-cyan-100/50 shadow-soft flex flex-col items-center">
       <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-6">
         Phương Pháp Thở Cân Bằng 4-7-8
       </h3>

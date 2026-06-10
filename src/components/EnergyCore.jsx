@@ -281,7 +281,7 @@ export default function EnergyCore({ presetToApply }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
         {/* Left Column: Form & Selection */}
-        <div className="bg-white rounded-3xl p-6 shadow-soft border border-slate-100/80 space-y-6">
+        <div className="bg-gradient-to-br from-white/95 via-amber-50/20 to-emerald-50/20 backdrop-blur-md rounded-3xl p-6 shadow-soft border border-amber-100/40 space-y-6">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
             <Award className="w-5 h-5 text-amber-500" />
             <h2 className="font-display font-extrabold text-base text-slate-800 uppercase tracking-wider">

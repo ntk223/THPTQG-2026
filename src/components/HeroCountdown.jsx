@@ -24,7 +24,7 @@ function CountdownCard({ value, label }) {
   const paddedValue = value.toString().padStart(2, '0');
 
   return (
-    <div className="flex flex-col items-center p-2 sm:p-4 rounded-2xl bg-white border border-emerald-250/70 shadow-soft w-18 sm:w-24 lg:w-28 relative">
+    <div className="flex flex-col items-center p-2 sm:p-4 rounded-2xl bg-gradient-to-br from-white/95 via-amber-50/20 to-emerald-50/20 border border-emerald-200/50 shadow-soft w-18 sm:w-24 lg:w-28 relative">
       {/* Soft decorative shadow boundary */}
       <div className="flex justify-center">
         <AnimatedNumber value={paddedValue[0]} />

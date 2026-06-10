@@ -91,7 +91,12 @@ export default function WarriorCards({ onApplyPreset }) {
               className="relative p-[1.5px] rounded-2xl bg-slate-200/80 hover:bg-gradient-to-r hover:from-amber-400 hover:to-orange-500 transition-all duration-300 hover:scale-[1.03] shadow-lg hover:shadow-2xl group overflow-hidden cursor-pointer"
             >
               {/* Card body wrapper */}
-              <div className="w-full h-full p-6 rounded-2xl bg-white flex flex-col justify-between min-h-[340px] relative">
+              <div className={`w-full h-full p-6 rounded-2xl flex flex-col justify-between min-h-[340px] relative border transition-all duration-300 ${
+                card.theme === 'amber' ? 'bg-gradient-to-br from-amber-50/70 via-white/95 to-orange-50/40 border-amber-100/60' :
+                card.theme === 'emerald' ? 'bg-gradient-to-br from-emerald-50/70 via-white/95 to-teal-50/40 border-emerald-100/60' :
+                card.theme === 'cyan' ? 'bg-gradient-to-br from-cyan-50/70 via-white/95 to-blue-50/40 border-cyan-100/60' :
+                'bg-gradient-to-br from-purple-50/70 via-white/95 to-pink-50/40 border-purple-100/60'
+              }`}>
                 {/* Visual gradient blob inside card */}
                 <div className={`absolute -right-12 -top-12 w-24 h-24 rounded-full bg-gradient-to-br ${card.gradient} opacity-5 group-hover:scale-150 transition-transform duration-500`} />
 

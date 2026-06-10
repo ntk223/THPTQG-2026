@@ -118,7 +118,7 @@ export default function FortuneDrawing() {
   };
 
   return (
-    <div className="w-full p-6 rounded-2xl bg-white border border-slate-100 shadow-soft flex flex-col items-center">
+    <div className="w-full p-6 rounded-2xl bg-gradient-to-br from-white/95 via-amber-50/20 to-orange-50/20 border border-amber-100/50 shadow-soft flex flex-col items-center">
       <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-6">
         Quẻ Bói Cát Tường Sĩ Tử
       </h3>

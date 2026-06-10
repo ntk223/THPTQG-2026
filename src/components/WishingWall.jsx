@@ -53,7 +53,7 @@ export default function WishingWall() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {/* Left: Input Sticky Form */}
-        <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-soft h-fit">
+        <div className="bg-gradient-to-br from-white/95 via-emerald-50/25 to-cyan-50/25 border border-emerald-100/40 rounded-3xl p-6 shadow-soft h-fit">
           <div className="flex items-center gap-1.5 border-b border-slate-100 pb-3 mb-4">
             <Pin className="w-4 h-4 text-amber-500" />
             <h3 className="font-display font-extrabold text-sm tracking-wider uppercase text-slate-800">
@@ -103,8 +103,8 @@ export default function WishingWall() {
         </div>
 
         {/* Right: Wishing Sticky Wall */}
-        <div className="lg:col-span-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[350px] overflow-y-auto pr-1">
+        <div className="lg:col-span-2 bg-gradient-to-br from-emerald-50/20 via-slate-100/30 to-cyan-50/20 rounded-3xl p-5 border border-slate-200/30 shadow-inner h-full flex flex-col justify-between">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[310px] overflow-y-auto pr-1">
             <AnimatePresence>
               {wishes.map((w) => (
                 <motion.div
